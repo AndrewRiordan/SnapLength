@@ -10,4 +10,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
+
+
+    protected double getDistanceFromHorizon(double theta, double height){
+        return height * Math.sin(theta);
+    }
 }
