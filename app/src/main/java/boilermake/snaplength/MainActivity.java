@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
+
     /** Check whether or not device is equipped w camera */
     private boolean checkCameraHardware(Context context) {
         if (context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA)) {
@@ -43,5 +44,10 @@ public class MainActivity extends AppCompatActivity {
         return c; //return null if camera is unavailable
     }
 
+
+
+    protected double getDistanceFromHorizon(double theta, double height){
+        return height * Math.sin(theta);
+    }
 
 }
