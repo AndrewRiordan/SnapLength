@@ -9,6 +9,7 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import java.util.EventListener;
@@ -24,14 +25,25 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     private Sensor mSensorAccelerometer;
     private Sensor mSensorMagnetometer;
 
+    Camera camera;
+    FrameLayout frameLayout;
+    ShowCamera showCamera;
+
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_main);
-        System.out.println("init");
-        TextView helloTextView = (TextView) findViewById(R.id.text_view_id);
-        helloTextView.setText("Hello World!!!!!!!");
+        frameLayout = (FrameLayout) findViewById(R.id.frameLayout);
+
+        // open the camera
+        camera = Camera.open();
+
+        showCamera = new ShowCamera(this, camera);
+        frameLayout.addView(showCamera);
+
+
+        // System.out.println("init");
+
         mSensorManager = (SensorManager) getSystemService(
                 Context.SENSOR_SERVICE);
         mSensorAccelerometer = mSensorManager.getDefaultSensor(
@@ -40,25 +52,27 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     }
 
     /** Check whether or not device is equipped w camera */
-    private boolean checkCameraHardware(Context context) {
+    /*private boolean checkCameraHardware(Context context) {
         if (context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA)) {
             return true;
         } else {
             return false;
         }
-    }
+    }*/
 
     /** Gets instance of Camera object */
-    public static Camera getCameraInstance() {
+    /*public static Camera getCameraInstance(){
         Camera c = null;
+
         try {
-            c = Camera.open(); // tries to get Camera instance
+            c = Camera.open(); // attempt to get a Camera instance
         }
-        catch (Exception e) {
-            // Camera not available for whatever reason
+        catch (Exception e){
+            // Camera is not available (in use or does not exist)
         }
-        return c; //return null if camera is unavailable
-    }
+        return c; // returns null if camera is unavailable
+    }*/
+
     protected double getDistanceFromHorizon(double theta, double height){
         return height * Math.sin(theta);
     }
@@ -209,12 +223,12 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             default:
                 return;
         }
-        TextView helloTextView = (TextView) findViewById(R.id.text_view_id);
+        FrameLayout helloTextView = findViewById(R.id.camera_preview);
         float[] rotationMatrix = new float[9];
         //float[] inclinationMatrix = new float[9];
         if(SensorManager.getRotationMatrix(rotationMatrix,null, mAccelerometerData,mMagData)){
             String s = ""+ (SensorManager.getOrientation(rotationMatrix, sensorEvent.values))[1];
-            helloTextView.setText(s);
+            // helloTextView.set(s);
         }
 
     }
