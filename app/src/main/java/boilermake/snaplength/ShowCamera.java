@@ -6,12 +6,16 @@ import android.graphics.Rect;
 import android.hardware.Camera;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import android.widget.TextView;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import static android.hardware.Camera.*;
+import static android.hardware.Camera.Parameters.FOCUS_DISTANCE_FAR_INDEX;
+import static android.hardware.Camera.Parameters.FOCUS_DISTANCE_NEAR_INDEX;
+import static android.hardware.Camera.Parameters.FOCUS_DISTANCE_OPTIMAL_INDEX;
 
 public class ShowCamera extends SurfaceView implements SurfaceHolder.Callback {
 
@@ -39,6 +43,7 @@ public class ShowCamera extends SurfaceView implements SurfaceHolder.Callback {
             params.setRotation(0);
         }
         List<String> focusModes = params.getSupportedFocusModes();
+        System.out.println("Starting focusMode");
         if(params.getFocusMode().contains(Camera.Parameters.FOCUS_MODE_CONTINUOUS_VIDEO))
             if(params.getMaxNumMeteringAreas()>0) {
                 List<Area> meteringAreas = new ArrayList<Area>();
@@ -50,16 +55,24 @@ public class ShowCamera extends SurfaceView implements SurfaceHolder.Callback {
                 params.setMeteringAreas(meteringAreas);
                 List<Area> x = params.getFocusAreas();
                 int k = x.size();
-                float[] c = new float[x.size()];
+                float[] c = {FOCUS_DISTANCE_NEAR_INDEX,FOCUS_DISTANCE_OPTIMAL_INDEX,FOCUS_DISTANCE_FAR_INDEX};
                 int i = 0;
                 while(i<k)
 
                 {
                     c[i] = x.get(i).weight;
                 }
+               // float distanceTo = (c[c.length /2]);
                 params.getFocusDistances(c);
+                float distanceTo = c[1];
+                TextView dog = (TextView)findViewById(R.id.rohansDist);
+                dog.setText("" + distanceTo);
+                System.out.println("" + distanceTo);
+                //System.out.println("distTo is " + distanceTo);
+
             }
         camera.setParameters(params);
+        System.out.println();
         try {
             camera.setPreviewDisplay(holder);
 
