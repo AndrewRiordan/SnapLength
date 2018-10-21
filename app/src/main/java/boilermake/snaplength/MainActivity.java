@@ -47,6 +47,10 @@ public class MainActivity extends AppCompatActivity {
                 Intent homeIntent = new Intent(MainActivity.this, HomepageActivity.class);
                 startActivity(homeIntent);
                 finish();
+                /*Intent homeIntent = new Intent(MainActivity.this, InstructionPage.class);
+                startActivity(homeIntent);
+                finish();*/
+
             }
         }, SPLASH_TIMEOUT);
 

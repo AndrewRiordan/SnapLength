@@ -58,5 +58,12 @@
         tools:layout_editor_relativeX="130dp"
         tools:layout_editor_relativeY="250dp" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hold your phone portrait at eye level downwards towards the point to which you want to measure "
+        android:layout_below="@+id/submitButton"
+        />
+
 </RelativeLayout>
 

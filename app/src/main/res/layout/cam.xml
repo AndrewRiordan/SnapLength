@@ -3,13 +3,20 @@
     android:orientation="horizontal"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:padding="10dp"
     >
+
     <FrameLayout
         android:id="@+id/camera_preview"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_weight="1"
-        >
+        android:layout_alignParentTop="true"
+
+        android:layout_marginTop="0dp"
+        android:layout_weight="1"/>
+       <!-- android:layout_alignParentStart="true"
+        android:layout_marginStart="0dp"-->
+
 
         <FrameLayout
             android:id="@+id/frameLayout"
@@ -17,23 +24,24 @@
             android:layout_height="match_parent">
 
         </FrameLayout>
-    </FrameLayout>
 
-
-    <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignTop="@+id/camera_preview"
         android:layout_marginTop="0dp">
+
         <TextView
             android:id="@+id/distance"
-            android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:text="Please line up the base of target point here:" />
-    </LinearLayout>
+            android:layout_height="wrap_content"
+            android:text="Please check your phone's sensory hardware:"
+            android:textColor="#ff0000"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:visibility="visible" />
+    </RelativeLayout>
 
-
-</RelativeLayout>
 
 

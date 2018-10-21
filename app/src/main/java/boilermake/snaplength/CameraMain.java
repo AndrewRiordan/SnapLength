@@ -69,8 +69,9 @@ public class CameraMain extends AppCompatActivity implements SensorEventListener
     public static void setHeight(double feet, double inches){
         height = (feet * 12) + inches;
     }
+    //((String.format("%.2f",inches % 12)
     public String convertInchesToFeet(double inches){
-        return ((int)inches / 12)+"'"+((String.format("%.2f",inches % 12)));
+        return ((int)inches / 12)+"'"+((int)(inches % 12));
     }
     @Override
     protected void onStart() {
