@@ -16,7 +16,7 @@ public class CameraActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.cam);
 
         // Create an instance of Camera
         mCamera = getCameraInstance();
