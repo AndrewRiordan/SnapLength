@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    tools:context=".HomepageActivity">
+
+
+    <ImageView
+        android:id="@+id/homepagelogo"
+        android:layout_width="267dp"
+        android:layout_height="71dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/snaplengthlogo" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/homepagelogo"
+        android:text="Welcome to Snaplength! Please your height below."
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/heightEntry"
+        android:layout_centerHorizontal="true"
+        android:text="Enter your height (feet-inches)"
+        android:textColor="#000000"
+        android:textSize="24sp" />
+
+    <EditText
+        android:id="@+id/heightEntry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:ems="10"
+        android:hint="Height"
+        android:inputType="textPersonName"
+        android:textColorHint="#000000"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/submitButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/heightEntry"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:onClick="buttonOnClick"
+
+        android:text="Submit"
+        android:textSize="24sp"
+        tools:layout_editor_relativeX="130dp"
+        tools:layout_editor_relativeY="250dp" />
+
+</RelativeLayout>
+

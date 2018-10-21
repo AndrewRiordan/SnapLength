@@ -23,13 +23,17 @@
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_alignTop="@+id/camera_preview"
+        android:layout_marginTop="0dp">
         <TextView
-            android:id="@+id/rohansDist"
+            android:id="@+id/distance"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:text="This Is Where Dist Goes" />
+            android:text="Please line up the base of target point here:" />
     </LinearLayout>
+
+
 </RelativeLayout>
 
 

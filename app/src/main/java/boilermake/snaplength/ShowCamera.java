@@ -53,26 +53,25 @@ public class ShowCamera extends SurfaceView implements SurfaceHolder.Callback {
                 Rect areaRect2 = new Rect(800, -1000, 1000, -800);  // specify an area in upper right of image
                 meteringAreas.add(new Area(areaRect2, 400)); // set weight to 40%
                 params.setMeteringAreas(meteringAreas);
-                List<Area> x = params.getFocusAreas();
-                int k = x.size();
-                float[] c = {FOCUS_DISTANCE_NEAR_INDEX,FOCUS_DISTANCE_OPTIMAL_INDEX,FOCUS_DISTANCE_FAR_INDEX};
-                int i = 0;
-                while(i<k)
+                //List<Area> x = params.getFocusAreas();
+                //int k = x.size();
+                //float[] c = {FOCUS_DISTANCE_NEAR_INDEX,FOCUS_DISTANCE_OPTIMAL_INDEX,FOCUS_DISTANCE_FAR_INDEX};
+                //int i = 0;
+                //while(i<k)
 
-                {
-                    c[i] = x.get(i).weight;
-                }
+                //{
+                //    c[i] = x.get(i).weight;
+                //}
                // float distanceTo = (c[c.length /2]);
-                params.getFocusDistances(c);
-                float distanceTo = c[1];
-                TextView dog = (TextView)findViewById(R.id.rohansDist);
-                dog.setText("" + distanceTo);
-                System.out.println("" + distanceTo);
+                //params.getFocusDistances(c);
+                //float distanceTo = c[1];
+                //TextView dog = (TextView)findViewById(R.id.rohansDist);
+                //dog.setText("" + distanceTo);
+                //System.out.println("" + distanceTo);
                 //System.out.println("distTo is " + distanceTo);
 
             }
         camera.setParameters(params);
-        System.out.println();
         try {
             camera.setPreviewDisplay(holder);
 
