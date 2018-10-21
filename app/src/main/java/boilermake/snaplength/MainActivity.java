@@ -1,7 +1,6 @@
 package boilermake.snaplength;
 
 import android.content.Context;
-import android.content.pm.PackageManager;
 import android.hardware.Camera;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -10,9 +9,6 @@ import android.hardware.SensorManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.FrameLayout;
-import android.widget.TextView;
-
-import java.util.EventListener;
 
 public class MainActivity extends AppCompatActivity implements SensorEventListener {
     // Detect and Access Camera
@@ -32,7 +28,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.cam);
         frameLayout = (FrameLayout) findViewById(R.id.frameLayout);
 
         // open the camera
